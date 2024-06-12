@@ -1,0 +1,13 @@
+artifacts_root: artifacts
+
+
+data_ingestion_manipulation:
+  root_dir: artifacts/data_ingestion
+  local_data_file: artifacts/data_ingestion/abalone.csv
+  source_URL: placeholder
+  save_training_file: artifacts/training
+ 
+training:
+  root_dir: artifacts/training
+  local_data_file: artifacts/training
+  trained_model_path: artifacts/training/model.pkl

@@ -3,4 +3,8 @@ seaborn
 matplotlib
 pandas
 scikit-learn
+python-box
+ensure
+pyyaml
+dill
 -e .
