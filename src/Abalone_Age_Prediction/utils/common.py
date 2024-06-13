@@ -91,7 +91,7 @@ def save_data(path_to_data_dir: Path, data, name: str):
 
 
 @ensure_annotations
-def save_object(file_path: Path,obj):
+def save_object(file_path: Path,obj,name):
     """Save a model in a given directory
     
     Args :
@@ -100,10 +100,11 @@ def save_object(file_path: Path,obj):
         
     """
     try:
-        dir_path = os.path.dirname(file_path)
-        os.makedirs(dir_path, exist_ok=True)
+        original_dir = os.getcwd()
+        
+        os.chdir(file_path)
 
-        with open(file_path,"wb") as file_obj:
+        with open(name,"wb") as file_obj:
             dill.dump(obj, file_obj) #the dill is a package that extends the capabilities of the pickle module
                                     # basically we can save function, classes, objects etc. Here we want
                                     # to save a given obj and this is a function that will be called from multiple
@@ -111,6 +112,8 @@ def save_object(file_path: Path,obj):
 
     except Exception as e:
         raise e
+    finally:
+        os.chdir(original_dir)
     
 @ensure_annotations
 def load_object(file_path: Path):
