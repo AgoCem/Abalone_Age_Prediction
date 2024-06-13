@@ -63,12 +63,29 @@ def save_data(path_to_data_dir: Path, data, name: str):
         name of the data
         
     """
+    
+    original_dir = os.getcwd()  # Save the original working directory
+    
+    
     try:
-        os.chdir(path_to_data_dir)
-        data.to_csv(name, index = False, header = True)
-    except Exception as e:
-        raise e
+        # Ensure the directory exists
+        if not path_to_data_dir.exists():
+            
+            path_to_data_dir.mkdir(parents=True, exist_ok=True)
+        
+        os.chdir(path_to_data_dir)  # Change the working directory to the target path
+        
 
+        # Save the data to a CSV file in the current directory
+        data.to_csv(name, index=False, header=True)
+        logger.info(f"File {name} saved")
+        
+    except Exception as e:
+        raise e  
+    
+    finally:
+        os.chdir(original_dir)  # Change back to the original directory
+        
 
 
 

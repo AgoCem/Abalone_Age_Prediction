@@ -4,7 +4,7 @@ artifacts_root: artifacts
 data_ingestion_manipulation:
   root_dir: artifacts/data_ingestion
   local_data_file: artifacts/data_ingestion/abalone.csv
-  source_URL: https://github.com/AgoCem/Abalone_Age_Prediction/blob/main/abalone.csv
+  source_URL: https://raw.githubusercontent.com/AgoCem/Abalone_Age_Prediction/main/abalone.csv
   save_training_file: artifacts/training
  
 training:
