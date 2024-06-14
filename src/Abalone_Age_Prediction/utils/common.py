@@ -47,10 +47,12 @@ def create_directories(path_to_directories: list, verbose=True):
         path_to_directories (list): list of path of directories
         ignore_log (bool, optional): ignore if multiple dirs is to be created. Defaults to False.
     """
-    for path in path_to_directories:
-        os.makedirs(path, exist_ok=True)
-        if verbose:
-            logger.info(f"created directory at: {path}")
+    for path_dir in path_to_directories:
+        if not os.path.exists(path_dir):
+            os.makedirs(path_dir, exist_ok=True)
+            logger.info(f"created directory at: {path_dir}")
+        else:
+            logger.info(f"The directory {path_dir} already exists")
 
 
 @ensure_annotations

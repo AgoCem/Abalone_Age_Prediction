@@ -67,8 +67,8 @@ class DataIngestionManipulation:
 
         X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.2,random_state=10)
 
-        train_data = pd.concat([X_train,y_train])
-        test_data = pd.concat([X_test,y_test])
+        train_data = pd.concat([X_train,y_train],axis=1)
+        test_data = pd.concat([X_test,y_test],axis=1)
 
         training_path = self.config.save_training_file
         #print("Before")
