@@ -11,3 +11,15 @@ model_preparation_training:
   root_dir: artifacts/training
   local_data_file: artifacts/training/train.csv
   trained_model_path: artifacts/training
+
+
+model_evaluation:
+  root_dir: artifacts/training
+  local_data_file: artifacts/training/test.csv
+  trained_model_path: artifacts/training
+  elastic_pickle: artifacts/training/elastic.pkl
+  lasso_pickle: artifacts/training/lasso.pkl
+  lr_pickle: artifacts/training/lr.pkl
+  rfr_pickle: artifacts/training/rfr.pkl
+  ridge_pickle: artifacts/training/ridge.pkl
+  svr_pickle: artifacts/training/svr.pkl
