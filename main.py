@@ -1,7 +1,7 @@
 from Abalone_Age_Prediction import logger
 from Abalone_Age_Prediction.pipeline.stage_01_data_ingestion_manipulation import DataIngestionManipulationPipeline
 from Abalone_Age_Prediction.pipeline.stage_02_model_preparation_and_validation import ModelPreparationValidationPipeline
-
+from Abalone_Age_Prediction.pipeline.stage_03_model_evaluation import ModelEvaluationPipeline
 
 
 
@@ -25,6 +25,19 @@ try:
    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
    model_preparation_validation = ModelPreparationValidationPipeline()
    model_preparation_validation.main()
+   logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+except Exception as e:
+   logger.exception(e)
+   raise e
+
+
+STAGE_NAME = "Model Evaluation"
+
+
+try:
+   logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
+   model_evaluation = ModelEvaluationPipeline()
+   model_evaluation.main()
    logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
 except Exception as e:
    logger.exception(e)

@@ -1,6 +1,6 @@
 from Abalone_Age_Prediction.utils.common import create_directories, read_yaml
 from Abalone_Age_Prediction.constants import *
-from Abalone_Age_Prediction.entity.config_entity import DataIngestionManipulationConfig,ModelPreparationTrainingConfig
+from Abalone_Age_Prediction.entity.config_entity import DataIngestionManipulationConfig,ModelPreparationTrainingConfig,ModelEvaluationConfig
 
 
 
@@ -50,3 +50,27 @@ class ConfigurationManager:
         )                                     
 
         return model_preparation_training_config
+    
+    
+
+
+    def get_model_evaluation_config(self) -> ModelEvaluationConfig:
+        config = self.config.model_evaluation #model evaluation is the other key value of the dictionary in the config.yaml file
+
+        create_directories([config.root_dir])
+
+        model_evaluation_config = ModelEvaluationConfig(
+            root_dir=config.root_dir,
+            local_data_file = config.local_data_file,
+            trained_model_path = config.trained_model_path,
+            best_model_path= config.best_model_path,
+            param_target_col=self.params.TARGET,
+            elastic_pickle= config.elastic_pickle,
+            lasso_pickle= config.lasso_pickle,
+            lr_pickle= config.lr_pickle,
+            rfr_pickle= config.rfr_pickle,
+            ridge_pickle= config.ridge_pickle,
+            svr_pickle= config.svr_pickle
+        )                                     
+
+        return model_evaluation_config

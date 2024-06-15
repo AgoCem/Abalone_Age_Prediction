@@ -23,3 +23,18 @@ class ModelPreparationTrainingConfig:
     param_l1_elastic: float
     param_c_svr: float
     param_target_col: str
+
+
+@dataclass(frozen=True)
+class ModelEvaluationConfig:
+    root_dir: Path
+    local_data_file: Path
+    trained_model_path: Path
+    best_model_path: Path
+    param_target_col: str
+    elastic_pickle: Path
+    lasso_pickle: Path
+    lr_pickle: Path
+    rfr_pickle: Path
+    ridge_pickle: Path
+    svr_pickle: Path

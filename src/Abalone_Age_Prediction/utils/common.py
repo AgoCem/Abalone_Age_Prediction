@@ -102,6 +102,7 @@ def save_object(file_path: Path,obj,name):
         
     """
     try:
+        os.makedirs(file_path, exist_ok=True)
         original_dir = os.getcwd()
         
         os.chdir(file_path)

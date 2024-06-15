@@ -17,6 +17,7 @@ model_evaluation:
   root_dir: artifacts/training
   local_data_file: artifacts/training/test.csv
   trained_model_path: artifacts/training
+  best_model_path: artifacts/best_model
   elastic_pickle: artifacts/training/elastic.pkl
   lasso_pickle: artifacts/training/lasso.pkl
   lr_pickle: artifacts/training/lr.pkl
